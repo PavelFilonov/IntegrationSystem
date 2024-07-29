@@ -21,6 +21,8 @@
     <module>ERPSystem</module>
     <module>CorporateDataStorage</module>
     <module>WebApp</module>
+    <module>AccountingSystem</module>
+    <module>ExternalService</module>
   </modules>
 
   <dependencies>

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ExternalService
+
+server:
+  port: 8084
