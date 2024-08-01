@@ -3,7 +3,7 @@ package com.ru.corporatedatastorage.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface AbstractService<F, RD, ED, E, I> {
+public interface AbstractService<RD, ED, E, I> {
 
 	RD create(ED dto);
 
@@ -13,7 +13,7 @@ public interface AbstractService<F, RD, ED, E, I> {
 
 	RD findById(I id);
 
-	Page<RD> findAll(F filter, Pageable pageable);
+	Page<RD> findAll(Pageable pageable);
 
 	RD entityToDto(E entity);
 
