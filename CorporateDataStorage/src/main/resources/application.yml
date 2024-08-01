@@ -1,6 +1,21 @@
 spring:
   application:
     name: CorporateDataStorage
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:/db/changelog-master.xml
+  jpa:
+    properties:
+      hibernate:
+        format_sql: false
+        characterEncoding: utf-8
+        CharSet: utf-8
+        useUnicode: true
+
 
 server:
   port: 8081
