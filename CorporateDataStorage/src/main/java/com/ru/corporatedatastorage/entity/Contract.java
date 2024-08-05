@@ -2,6 +2,7 @@ package com.ru.corporatedatastorage.entity;
 
 import static jakarta.persistence.FetchType.LAZY;
 
+import com.ru.corporatedatastorage.dto.read.ContractReadDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -33,5 +34,15 @@ public class Contract extends BaseEntity {
 	@ManyToOne(fetch = LAZY)
 	@JoinColumn(name = "partner_id", nullable = false)
 	private Partner partner;
+
+	private Long externalId;
+
+	public static Contract mapFromDto(Contract entity, ContractReadDto dto) {
+		entity.setExternalId(dto.getId());
+		entity.setText(dto.getText());
+		entity.setEffectiveFrom(dto.getEffectiveFrom());
+		entity.setEffectiveTo(dto.getEffectiveTo());
+		return entity;
+	}
 
 }

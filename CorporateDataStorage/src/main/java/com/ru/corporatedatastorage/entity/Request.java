@@ -2,6 +2,7 @@ package com.ru.corporatedatastorage.entity;
 
 import static jakarta.persistence.FetchType.LAZY;
 
+import com.ru.corporatedatastorage.dto.read.RequestReadDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -26,5 +27,13 @@ public class Request extends BaseEntity {
 
 	@Column(nullable = false)
 	private String link;
+
+	private Long externalId;
+
+	public static Request mapFromDto(Request entity, RequestReadDto dto) {
+		entity.setExternalId(dto.getId());
+		entity.setLink(dto.getLink());
+		return entity;
+	}
 
 }

@@ -2,6 +2,7 @@ package com.ru.corporatedatastorage.entity;
 
 import static jakarta.persistence.FetchType.LAZY;
 
+import com.ru.corporatedatastorage.dto.read.PurchaseReadDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -31,5 +32,13 @@ public class Purchase extends BaseEntity {
 
 	@Column(nullable = false)
 	private LocalDateTime purchasedAt;
+
+	private Long externalId;
+
+	public static Purchase mapFromDto(Purchase entity, PurchaseReadDto dto) {
+		entity.setExternalId(dto.getId());
+		entity.setPurchasedAt(dto.getPurchasedAt());
+		return entity;
+	}
 
 }

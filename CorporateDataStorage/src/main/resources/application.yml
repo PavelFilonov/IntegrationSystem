@@ -16,6 +16,22 @@ spring:
         CharSet: utf-8
         useUnicode: true
 
-
 server:
   port: 8081
+
+external-system:
+  url: ${EXTERNAL_SYSTEM_URL:http://localhost:8084/}
+
+erp-system:
+  url: ${ERP_SYSTEM_URL:http://localhost:8080/}
+
+account-system:
+  url: ${ACCOUNT_SYSTEM_URL:http://localhost:8083/}
+
+web-app:
+  url: ${WEB_APP_URL:http://localhost:8082/}
+
+scheduled:
+  timezone: Etc/GMT
+  data-migration:
+    cron: ${DATA_MIGRATION_CRON:0 0 21 * * ?}

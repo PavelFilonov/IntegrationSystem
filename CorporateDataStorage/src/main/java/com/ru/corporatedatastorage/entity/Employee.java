@@ -1,5 +1,6 @@
 package com.ru.corporatedatastorage.entity;
 
+import com.ru.corporatedatastorage.dto.read.EmployeeReadDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -25,5 +26,16 @@ public class Employee extends BaseEntity {
 	private String email;
 
 	private String phone;
+
+	private Long externalId;
+
+	public static Employee mapFromDto(Employee entity, EmployeeReadDto dto) {
+		entity.setExternalId(dto.getId());
+		entity.setFirstName(dto.getFirstName());
+		entity.setLastName(dto.getLastName());
+		entity.setEmail(dto.getEmail());
+		entity.setPhone(dto.getPhone());
+		return entity;
+	}
 
 }

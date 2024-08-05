@@ -1,5 +1,6 @@
 package com.ru.corporatedatastorage.entity;
 
+import com.ru.corporatedatastorage.dto.read.UserReadDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -21,5 +22,14 @@ public class User extends BaseEntity {
 
 	@Column(nullable = false)
 	private String password;
+
+	private Long externalId;
+
+	public static User mapFromDto(User entity, UserReadDto dto) {
+		entity.setExternalId(dto.getId());
+		entity.setUsername(entity.getUsername());
+		entity.setPassword(entity.getPassword());
+		return entity;
+	}
 
 }

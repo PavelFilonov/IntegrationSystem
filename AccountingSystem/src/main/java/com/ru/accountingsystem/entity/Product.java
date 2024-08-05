@@ -1,20 +1,20 @@
-package com.ru.corporatedatastorage.dto.edit;
+package com.ru.accountingsystem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class UserEditDto {
+public class Product extends BaseEntity {
 
-	private String username;
+	private String name;
 
-	private String password;
+	private String description;
+
+	private Double price;
 
 }
